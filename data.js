@@ -66,8 +66,7 @@ const APPS = [
     },
     icon: "images/quranwarsh-icon.png",
     play: "https://play.google.com/store/apps/details?id=com.aouladbouchta.quranwarsh",
-    privacy: "https://sites.google.com/view/quran-warsh-nafie/accueil",
-    docsLang: "fr", // لغة صفحة الخصوصية
+    privacy: "privacy-quranwarsh.html",
     terms: "",
   },
 ];
