@@ -30,7 +30,7 @@ const APPS = [
     },
     icon: "images/wasla-icon.png",
     play: "https://play.google.com/store/apps/details?id=com.aouladbouchta.waslakalimat",
-    privacy: "privacy.html",
+    privacy: "privacy-waslakalimat.html",
     terms: "terms.html",
   },
   {
