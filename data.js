@@ -31,7 +31,7 @@ const APPS = [
     icon: "images/wasla-icon.png",
     play: "https://play.google.com/store/apps/details?id=com.aouladbouchta.waslakalimat",
     privacy: "privacy-waslakalimat.html",
-    terms: "terms.html",
+    terms: "terms-waslakalimat.html",
   },
   {
     name: { ar: "رحلة عبر التاريخ الإسلامي", en: "A Journey Through Islamic History", fr: "Voyage dans l'histoire islamique" },
