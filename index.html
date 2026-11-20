@@ -92,6 +92,15 @@
       .screen h3 { font-family: var(--display); font-weight: 700; font-size: clamp(38px, 6vw, 64px); line-height: 1.1; margin: 0 0 14px; }
       .screen p { margin: 0 0 22px; font-size: 19px; }
 
+      .window {
+        border-radius: 4px; background: #b9d6dc;
+        display: flex; align-items: flex-end; justify-content: space-between; gap: 32px;
+        padding: 44px 48px 0;
+      }
+      .window .txt { max-width: 580px; padding-bottom: 44px; }
+      .window h3 { font-family: var(--display); font-weight: 700; font-size: clamp(34px, 5vw, 54px); line-height: 1.1; margin: 0 0 14px; }
+      .window p { margin: 0 0 22px; }
+      .window .arch { flex: none; width: 190px; height: auto; display: block; }
       .next { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px 48px; margin: 0; }
       .next dt { font-family: var(--display); font-weight: 700; font-size: 22px; }
       .next dd { margin: 2px 0 0; color: var(--moss); }
@@ -113,6 +122,9 @@
         .app h3 { font-size: 24px; }
         .screen { border-width: 10px; min-height: 0; }
         .screen .txt { padding: 28px 24px 110px; }
+        .window { flex-direction: column; align-items: stretch; padding: 28px 24px 0; gap: 0; }
+        .window .txt { padding-bottom: 20px; }
+        .window .arch { width: 120px; align-self: flex-end; }
       }
       @media (prefers-reduced-motion: reduce) { .screen::before { animation: none; } }
     </style>
@@ -178,6 +190,15 @@
         <path d="M905 138c-2-34 1-60 6-84-16 4-30 14-40 26 8-16 22-28 38-34-14-4-30-2-42 6 12-12 30-16 46-12-4-10-14-18-26-22 16 0 28 8 34 20 6-10 18-16 30-16-12 6-20 16-22 28 14-4 30 0 40 10-14-4-28-2-38 6 12 2 24 10 30 22-12-8-26-12-40-10-4 22-6 46-4 60z"/>
       </svg>`;
 
+      // نافذة مقوّسة يدخل منها الضوء — لقناة بيت النور
+      const ARCH = `<svg class="arch" viewBox="0 0 200 270" aria-hidden="true">
+        <path d="M20 270V100a80 80 0 0 1 160 0v170z" fill="#f6f7f3"/>
+        <circle cx="100" cy="118" r="36" fill="#e3a43a"/>
+        <path d="M20 270v-62q40-26 80-6t80-10v78z" fill="#7fa58f"/>
+        <path d="M100 20v250M20 150h160" stroke="#1f2b27" stroke-width="7"/>
+        <path d="M14 270V100a86 86 0 0 1 172 0v170" fill="none" stroke="#1f2b27" stroke-width="12"/>
+      </svg>`;
+
       function pick() {
         const q = new URLSearchParams(location.search).get("lang");
         if (LANGS.includes(q)) return q;
@@ -221,15 +242,16 @@
           </li>`;
         }).join("");
 
-        $("channels").innerHTML = `<h2>${t.channel}</h2>` + CHANNELS.map((c) => `
-          <div class="screen">
-            <div class="txt">
+        $("channels").innerHTML = `<h2>${t.channel}</h2>` + CHANNELS.map((c) => {
+          const body = `<div class="txt">
               <h3>${esc(L(c.name))}</h3>
               <p>${esc(L(c.desc))}</p>
               ${c.url ? `<a class="play" href="${esc(c.url)}" target="_blank" rel="noopener">${t.watch}</a>` : ""}
-            </div>
-            ${SKYLINE}
-          </div>`).join('<div style="height:28px"></div>');
+            </div>`;
+          return c.look === "light"
+            ? `<div class="window">${body}${ARCH}</div>`
+            : `<div class="screen">${body}${SKYLINE}</div>`;
+        }).join('<div style="height:28px"></div>');
 
         $("nextList").innerHTML = NEXT.map((n) => `<div><dt>${esc(L(n.name))}</dt><dd>${esc(L(n.desc))}</dd></div>`).join("");
         if (!NEXT.length) $("next").hidden = true;

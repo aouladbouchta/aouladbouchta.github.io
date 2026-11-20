@@ -81,18 +81,19 @@ const CHANNELS = [
     },
     url: "https://www.youtube.com/@shadows.of.history-24",
   },
-];
-
-const NEXT = [
   {
-    name: { ar: "عائشة ومريم وعلي", en: "Aisha, Maryam & Ali", fr: "Aïcha, Maryam et Ali" },
+    name: { ar: "بيت النور", en: "Bayt al-Noor", fr: "Bayt al-Noor" },
     desc: {
-      ar: "قناة كرتونية تعليمية للأطفال.",
-      en: "An educational cartoon channel for kids.",
-      fr: "Une chaîne de dessins animés éducatifs pour enfants.",
+      ar: "قناة للأطفال من 4 إلى 8 سنوات: الإخوة عائشة ومريم وعلي يتعلمون الآداب الإسلامية وقصص القرآن وعجائب خلق الله والحروف والأرقام، بعربية فصحى بسيطة. حلقات جديدة كل أحد وثلاثاء وجمعة.",
+      en: "For kids aged 4 to 8: siblings Aisha, Maryam and Ali learn Islamic manners, Quran stories, the wonders of creation, letters and numbers, in simple Arabic. New episodes every Sunday, Tuesday and Friday.",
+      fr: "Pour les enfants de 4 à 8 ans : Aïcha, Maryam et Ali apprennent les bonnes manières, les histoires du Coran, les merveilles de la création, les lettres et les chiffres, en arabe simple. Nouveaux épisodes le dimanche, le mardi et le vendredi.",
     },
+    url: "https://www.youtube.com/@baytalnoorkids",
+    look: "light", // تصميم مختلف عن ستار خيال الظل
   },
 ];
+
+const NEXT = [];
 
 // حساباتك على مواقع التواصل — أضف أو احذف كما تشاء
 const SOCIAL = [
